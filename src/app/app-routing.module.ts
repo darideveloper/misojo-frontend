@@ -1,7 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SignUpComponent } from './components/authentication/sign-up/sign-up.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+
+  {
+    path: '',
+    redirectTo: 'signup',
+    pathMatch: 'full'
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent,
+    //canActivate: [WebAuthenticationGuardService]
+  },
+  /* {
+    path: '**',
+    loadChildren: () => import("@common/lib/components/error-page/error-page.module").then(module => module.ErrorPageModule)
+  } */
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
