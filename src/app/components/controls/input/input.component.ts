@@ -1,10 +1,19 @@
 import { Component, forwardRef, Input, OnInit } from "@angular/core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
   styleUrls: ['./input.component.less']
 })
-export class InputComponent implements OnInit {
+export class InputComponent implements ControlValueAccessor {
   value: any = null;
 
   @Input() uppercase:boolean = false;
@@ -18,7 +27,16 @@ export class InputComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  writeValue(val: any): void {
+    this.value = val;
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
   }
 
   public onChange(val: any): void {}

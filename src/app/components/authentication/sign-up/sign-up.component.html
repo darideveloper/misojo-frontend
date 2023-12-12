@@ -1,71 +1,79 @@
-<form>
-  <app-label
-    text="Name"
-  >
-  </app-label>
-  <app-input
-    name="name"
-    placeholder="John"
-    type="text"
-    formControlName="name"
-    [control]="signUpForm.controls['name']"
-    [submitted]="submitted"
-  >
-  </app-input>
-  <app-label
-    text="Last Name"
-  >
-  </app-label>
-  <app-input
-    name="lastName"
-    placeholder="Doe"
-    type="text"
-    formControlName="lastName"
-    [control]="signUpForm.controls['lastName']"
-    [submitted]="submitted"
-  >
-  </app-input>
-  <app-label
-    text="Email"
-  >
-  </app-label>
-  <app-input
-    name="email"
-    placeholder="name@email.com"
-    type="email"
-    formControlName="email"
-    [control]="signUpForm.controls['email']"
-    [submitted]="submitted"
-  >
-  </app-input>
-  <app-label
-    text="Password"
-  >
-  </app-label>
-  <app-input
-    name="password"
-    placeholder="**********"
-    type="password"
-    formControlName="password"
-    [control]="signUpForm.controls['password']"
-    [submitted]="submitted"
-  >
-  </app-input>
-  <app-label
-    text="Confirm Password"
-  >
-  </app-label>
-  <app-input
-    name="passwordConfirm"
-    placeholder="**********"
-    type="password"
-    formControlName="passwordConfirm"
-    [control]="signUpForm.controls['passwordConfirm']"
-    [submitted]="submitted"
-  >
-  </app-input>
-  <app-button
-    text="Sign Up"
-  >
-  </app-button>
-</form>
+<div class="content">
+  <div class="left">
+    <img src="../../../../assets/Images/Audiobook-pana.svg" alt="">
+  </div>
+  <div class="right">
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()" novalidate>
+      <h1>Create Account</h1>
+      <app-label
+        text="Name"
+      >
+      </app-label>
+      <app-input
+        name="name"
+        placeholder="John"
+        type="text"
+        formControlName="name"
+        [control]="signUpForm.controls['name']"
+        [submitted]="submitted"
+      >
+      </app-input>
+      <app-label
+        text="Last Name"
+      >
+      </app-label>
+      <app-input
+        name="lastName"
+        placeholder="Doe"
+        type="text"
+        formControlName="lastName"
+        [control]="signUpForm.controls['lastName']"
+        [submitted]="submitted"
+      >
+      </app-input>
+      <app-label
+        text="Email"
+      >
+      </app-label>
+      <app-input
+        name="email"
+        placeholder="name@email.com"
+        type="email"
+        formControlName="email"
+        [control]="signUpForm.controls['email']"
+        [submitted]="submitted"
+      >
+      </app-input>
+      <app-label
+        text="Password"
+      >
+      </app-label>
+      <app-input
+        name="password"
+        placeholder="**********"
+        type="password"
+        formControlName="password"
+        [control]="signUpForm.controls['password']"
+        [submitted]="submitted"
+      >
+      </app-input>
+      <app-label
+        text="Confirm Password"
+      >
+      </app-label>
+      <app-input
+        name="passwordConfirm"
+        placeholder="**********"
+        type="password"
+        formControlName="passwordConfirm"
+        [control]="signUpForm.controls['passwordConfirm']"
+        [submitted]="submitted"
+      >
+      </app-input>
+      <app-button
+        text="Sign Up"
+      >
+      </app-button>
+    </form>
+  </div>
+</div>
