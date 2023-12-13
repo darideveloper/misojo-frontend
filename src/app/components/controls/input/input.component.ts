@@ -23,6 +23,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() name = '';
   @Input() control: any;
   @Input() submitted: boolean = false;
+  @Input() error: boolean = false;
   @Input() appearance: 'standard' | 'fill' = 'standard';
 
   constructor() { }

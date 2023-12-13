@@ -4,5 +4,6 @@
   [type]="type"
   placeholder="{{placeholder}}"
   (input)="change($event)"
-  [ngClass]="errorClass"
+  [ngClass]="{'error-field':error && submitted}"
+
 />
