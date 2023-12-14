@@ -1,6 +1,15 @@
+@import "../../../../common-variables.less";
+
 label{
   margin-top: 20px;
   margin-bottom: 10px;
   display: inline-block;
   font-family: 'Noto Sans', sans-serif;
+}
+
+@media (max-width: 450px)
+{
+  label{
+    font-size: @text-xs;
+  }
 }
