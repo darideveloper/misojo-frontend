@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from "@angular/router";
+import { finalize } from 'rxjs/operators';
+import { MisojoApiService } from 'src/app/services/misojo-api.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +13,9 @@ export class SignUpComponent implements OnInit {
 
   public submitted = false;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private misojoApi: MisojoApiService) { }
 
   ngOnInit(): void {
   }
@@ -49,7 +53,30 @@ export class SignUpComponent implements OnInit {
 
     this.submitted = false;
 
+    this.misojoApi.signUp({
+      first_name: this.signUpForm.get('name')!.value,
+      last_name: this.signUpForm.get('lastName')!.value,
+      email: this.signUpForm.get('email')!.value,
+      password: this.signUpForm.get('password')!.value
+    })
+      .pipe(finalize(() => {
+        //this.spinnerService.hide()
+      }))
+      .subscribe(
+        () => this.redirectToLogin(),
+        (errorDefinition:any) => this.handleError(errorDefinition)
+      );
+
+
+  }
+
+  redirectToLogin(){
     this.router.navigate(["/login"]);
+  }
+
+  handleError(error: any) {
+    //this.toastrService.showError(error.message)
+    alert("There has been an error");
   }
 
 }
