@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-sign-up',
@@ -10,7 +11,7 @@ export class SignUpComponent implements OnInit {
 
   public submitted = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -47,6 +48,8 @@ export class SignUpComponent implements OnInit {
     }
 
     this.submitted = false;
+
+    this.router.navigate(["/login"]);
   }
 
 }
