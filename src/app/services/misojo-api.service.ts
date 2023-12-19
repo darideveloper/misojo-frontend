@@ -12,7 +12,7 @@ import { IAuthenticationResponse } from '../models/authentication-response';
 })
 export class MisojoApiService {
 
-  apiUrl:string = "https://misjo-backend-71ee817c137f.herokuapp.com/api"
+  apiUrl:string = "https://misojo-backend-b0545441e155.herokuapp.com/api"
 
   constructor(
     private httpClient: HttpClient

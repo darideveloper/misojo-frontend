@@ -55,6 +55,12 @@ p{
 h1, p{
   margin: 0;
   padding: 0;
+  color: @text-color;
+}
+
+.sweet-alert-title{
+  border: 1px solid red;
+  font-family: 'Heebo', sans-serif;
 }
 
 form{
@@ -90,6 +96,17 @@ form{
 }
 
 @media (max-width: 900px)
+{
+  img{
+    width: 320px;
+    margin-right: -150px;
+  }
+  form{
+    width: 70%;
+  }
+}
+
+@media (max-width: 770px)
 {
   .content{
     flex-direction: column-reverse;

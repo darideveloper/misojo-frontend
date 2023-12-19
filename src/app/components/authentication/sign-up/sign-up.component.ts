@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors }
 import { Router } from "@angular/router";
 import { finalize } from 'rxjs/operators';
 import { MisojoApiService } from 'src/app/services/misojo-api.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-sign-up',
@@ -18,6 +19,7 @@ export class SignUpComponent implements OnInit {
     private misojoApi: MisojoApiService) { }
 
   ngOnInit(): void {
+    
   }
 
   signUpForm: FormGroup = new FormGroup(
@@ -63,7 +65,23 @@ export class SignUpComponent implements OnInit {
         //this.spinnerService.hide()
       }))
       .subscribe(
-        () => this.redirectToLogin(),
+        () => {
+          Swal.fire({
+            title: "Great",
+            icon: "success",
+            text: "Succesful login",
+            color: "#020202",
+            background: "#fffbf5",
+            showCloseButton: true,
+            showCancelButton: false,
+            focusConfirm: false,
+            confirmButtonText: "Ok",
+            confirmButtonAriaLabel: "Ok",
+            cancelButtonText: "Cancel",
+            cancelButtonAriaLabel: "Cancel"
+          });
+          this.redirectToLogin()
+        },
         (errorDefinition:any) => this.handleError(errorDefinition)
       );
 
@@ -76,7 +94,20 @@ export class SignUpComponent implements OnInit {
 
   handleError(error: any) {
     //this.toastrService.showError(error.message)
-    alert("There has been an error");
+    Swal.fire({
+      title: "Error",
+      icon: "error",
+      text: error.message,
+      color: "#020202",
+      background: "#fffbf5",
+      showCloseButton: true,
+      showCancelButton: false,
+      focusConfirm: false,
+      confirmButtonText: "Close",
+      confirmButtonAriaLabel: "Close",
+      cancelButtonText: "Cancel",
+      cancelButtonAriaLabel: "Cancel"
+    });
   }
 
 }
