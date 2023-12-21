@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Noto+Sans&family=Poppins:wght@400;500&display=swap');
+
+body{
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ffac6c;
+}
+
+.top{
+  width: 80%;
+  height: 80%;
+  padding: 100px;
+  border-radius: 0 0 20px 20px;
+  background-color: #fffbf5;
+  box-sizing: border-box;
+}
+.bottom{
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p, h1{
+  margin: 0;
+  color: #020202;
+  text-align: center;
+}
+
+h1{
+  margin-bottom: 50px;
+  font-size: 40px;
+  font-family: 'Heebo', sans-serif;
+}
+
+p, button{
+  font-size: 20px;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+button{
+  width: 250px;
+  height: 40px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 7px;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #ffac6c;
+  transition: all 0.5s ease-out;
+}
+
+button:hover{
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  transform: scaleX(1.05)
+}
+
+button:active{
+  opacity: 0.8;
+}
+
+.centered-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright-text{
+  color: #fffbf5;
+}
+
+@media (max-width: 730px)
+{
+  .top{
+    padding: 100px 50px;
+  }
+}
+
+@media (max-width: 595px)
+{
+  .top{
+    width: 90%;
+    padding: 100px 20px;
+  }
+  .copyright-text{
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 465px)
+{
+  h1{
+    font-size: 30px;
+  }
+  .top{
+    width: 100%;
+  }
+}
+
+@media (max-width: 325px)
+{
+  h1{
+    font-size: 25px;
+  }
+}
