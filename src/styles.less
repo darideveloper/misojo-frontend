@@ -16,3 +16,25 @@ h1{
 p, label{
   font-family: @text-font !important;
 }
+
+// Overwrite sweet alert styles
+button.swal2-confirm {
+  border-radius: 7px;
+  background-color: @custom-primary;
+  transition: all @transition-duration ease-out;
+  color: white !important;
+  cursor: pointer;
+  border: 3px solid @custom-primary !important;
+  font-weight: bold;
+
+  &:hover{
+    background-color: white !important;
+    color: @custom-primary !important;
+    transform: scale(1.05);
+    background-image: none !important;
+  }
+  
+  &:active{
+    opacity: 0.8;
+  }
+}
