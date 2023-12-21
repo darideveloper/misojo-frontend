@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { finalize } from 'rxjs/operators';
 import { MisojoApiService } from 'src/app/services/misojo-api.service';
 import Swal from 'sweetalert2'
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-sign-up',
@@ -34,6 +35,10 @@ export class SignUpComponent implements OnInit {
     //   cancelButtonText: "Cancel",
     //   cancelButtonAriaLabel: "Cancel"
     // });
+
+    // Start AOS
+    // TODO: MOVE THIS
+    AOS.init();
   }
 
   signUpForm: FormGroup = new FormGroup(

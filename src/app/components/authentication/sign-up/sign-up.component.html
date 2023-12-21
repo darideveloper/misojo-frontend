@@ -1,101 +1,105 @@
 <div class="content">
   <div class="left">
-    <img src="../../../../assets/Images/Audiobook-pana.svg" alt="">
+    <img src="../../../../assets/Images/Audiobook-pana.svg" alt="" data-aos="fade-down" data-aos-duration="1000">
   </div>
   <div class="right">
     <form [formGroup]="signUpForm" (ngSubmit)="submit()" novalidate>
-      <h1>Create Account</h1>
-      <div class="split-row">
-        <div class="row">
-          <app-label
-            text="Name"
-          >
-          </app-label>
-          <app-input
-            name="name"
-            placeholder="John"
-            type="text"
-            formControlName="name"
-            [control]="signUpForm.controls['name']"
-            [submitted]="submitted"
-            [error]="this.signUpForm.get('name')!.hasError('required')"
-          >
-          </app-input>
-          <p *ngIf="this.signUpForm.get('name')!.hasError('required') && submitted" class="error-field">Required</p>
+      <h1 data-aos="fade-down" data-aos-duration="800" data-aos-delay="800">Create Account</h1>
+
+      <div class="inputs" data-aos="fade-down" data-aos-duration="800" data-aos-delay="1200">
+        <div class="split-row">
+          <div class="row">
+            <app-label
+              text="Name"
+            >
+            </app-label>
+            <app-input
+              name="name"
+              placeholder="John"
+              type="text"
+              formControlName="name"
+              [control]="signUpForm.controls['name']"
+              [submitted]="submitted"
+              [error]="this.signUpForm.get('name')!.hasError('required')"
+            >
+            </app-input>
+            <p *ngIf="this.signUpForm.get('name')!.hasError('required') && submitted" class="error-field">Required</p>
+          </div>
+          <div class="row">
+            <app-label
+              text="Last Name"
+            >
+            </app-label>
+            <app-input
+              name="lastName"
+              placeholder="Doe"
+              type="text"
+              formControlName="lastName"
+              [control]="signUpForm.controls['lastName']"
+              [submitted]="submitted"
+              [error]="this.signUpForm.get('lastName')!.hasError('required')"
+            >
+            </app-input>
+            <p *ngIf="this.signUpForm.get('lastName')!.hasError('required') && submitted" class="error-field">Required</p>
+          </div>
         </div>
-        <div class="row">
-          <app-label
-            text="Last Name"
-          >
-          </app-label>
-          <app-input
-            name="lastName"
-            placeholder="Doe"
-            type="text"
-            formControlName="lastName"
-            [control]="signUpForm.controls['lastName']"
-            [submitted]="submitted"
-            [error]="this.signUpForm.get('lastName')!.hasError('required')"
-          >
-          </app-input>
-          <p *ngIf="this.signUpForm.get('lastName')!.hasError('required') && submitted" class="error-field">Required</p>
+        <app-label
+          text="Email"
+        >
+        </app-label>
+        <app-input
+          name="email"
+          placeholder="name@email.com"
+          type="email"
+          formControlName="email"
+          [control]="signUpForm.controls['email']"
+          [submitted]="submitted"
+          [error]="this.signUpForm.get('email')!.hasError('required') || this.signUpForm.get('email')!.hasError('email')"
+        >
+        </app-input>
+        <p *ngIf="this.signUpForm.get('email')!.hasError('required') && submitted" class="error-field">Required</p>
+        <p *ngIf="this.signUpForm.get('email')!.hasError('email') && submitted" class="error-field">Invalid Format</p>
+        <div class="split-row">
+          <div class="row">
+            <app-label
+              text="Password"
+            >
+            </app-label>
+            <app-input
+              name="password"
+              placeholder="**********"
+              type="password"
+              formControlName="password"
+              [control]="signUpForm.controls['password']"
+              [submitted]="submitted"
+              [error]="this.signUpForm.get('password')!.hasError('required') || this.signUpForm.get('password')!.value.length<8 || this.signUpForm.get('passwordConfirm')!.value != this.signUpForm.get('password')!.value"
+            >
+            </app-input>
+            <p *ngIf="this.signUpForm.get('password')!.hasError('required') && submitted" class="error-field">Required</p>
+            <p *ngIf="this.signUpForm.get('password')!.value.length<8 && submitted" class="error-field">There has to be at least 8 characters</p>
+            <p *ngIf="this.signUpForm.get('passwordConfirm')!.value != this.signUpForm.get('password')!.value  && submitted" class="error-field">Passwords don't match</p>
+          </div>
+          <div class="row">
+            <app-label
+              text="Confirm Password"
+            >
+            </app-label>
+            <app-input
+              name="passwordConfirm"
+              placeholder="**********"
+              type="password"
+              formControlName="passwordConfirm"
+              [control]="signUpForm.controls['passwordConfirm']"
+              [submitted]="submitted"
+              [error]="this.signUpForm.get('passwordConfirm')!.value==''"
+            >
+            </app-input>
+            <p *ngIf="this.signUpForm.get('passwordConfirm')!.value=='' && submitted" class="error-field">Required</p>
+          </div>
         </div>
       </div>
-      <app-label
-        text="Email"
-      >
-      </app-label>
-      <app-input
-        name="email"
-        placeholder="name@email.com"
-        type="email"
-        formControlName="email"
-        [control]="signUpForm.controls['email']"
-        [submitted]="submitted"
-        [error]="this.signUpForm.get('email')!.hasError('required') || this.signUpForm.get('email')!.hasError('email')"
-      >
-      </app-input>
-      <p *ngIf="this.signUpForm.get('email')!.hasError('required') && submitted" class="error-field">Required</p>
-      <p *ngIf="this.signUpForm.get('email')!.hasError('email') && submitted" class="error-field">Invalid Format</p>
-      <div class="split-row">
-        <div class="row">
-          <app-label
-            text="Password"
-          >
-          </app-label>
-          <app-input
-            name="password"
-            placeholder="**********"
-            type="password"
-            formControlName="password"
-            [control]="signUpForm.controls['password']"
-            [submitted]="submitted"
-            [error]="this.signUpForm.get('password')!.hasError('required') || this.signUpForm.get('password')!.value.length<8 || this.signUpForm.get('passwordConfirm')!.value != this.signUpForm.get('password')!.value"
-          >
-          </app-input>
-          <p *ngIf="this.signUpForm.get('password')!.hasError('required') && submitted" class="error-field">Required</p>
-          <p *ngIf="this.signUpForm.get('password')!.value.length<8 && submitted" class="error-field">There has to be at least 8 characters</p>
-          <p *ngIf="this.signUpForm.get('passwordConfirm')!.value != this.signUpForm.get('password')!.value  && submitted" class="error-field">Passwords don't match</p>
-        </div>
-        <div class="row">
-          <app-label
-            text="Confirm Password"
-          >
-          </app-label>
-          <app-input
-            name="passwordConfirm"
-            placeholder="**********"
-            type="password"
-            formControlName="passwordConfirm"
-            [control]="signUpForm.controls['passwordConfirm']"
-            [submitted]="submitted"
-            [error]="this.signUpForm.get('passwordConfirm')!.value==''"
-          >
-          </app-input>
-          <p *ngIf="this.signUpForm.get('passwordConfirm')!.value=='' && submitted" class="error-field">Required</p>
-        </div>
-      </div>
-      <div class="centered">
+
+      <div class="centered" data-aos="fade-down" data-aos-duration="800" data-aos-delay="1600">
         <div class="row">
           <app-button
             text="Sign Up"
