@@ -1,6 +1,6 @@
 export interface IAuthenticationResponse {
   id: number,
-  first_name: string,
-  last_name: string,
+  firstname: string,
+  lastname: string,
   email: string
 }
