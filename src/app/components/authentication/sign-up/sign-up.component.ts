@@ -19,25 +19,7 @@ export class SignUpComponent implements OnInit {
     private router: Router,
     private misojoApi: MisojoApiService) { }
 
-  ngOnInit(): void {
-    Swal.fire({
-      title: "Great",
-      icon: "success",
-      text: "Succesful login",
-      color: "#020202",
-      background: "#fffbf5",
-      confirmButtonColor: "#ffac6c",
-      showCloseButton: true,
-      showCancelButton: false,
-      focusConfirm: false,
-      confirmButtonText: "Ok",
-      confirmButtonAriaLabel: "Ok",
-      cancelButtonText: "Cancel",
-      cancelButtonAriaLabel: "Cancel",
-      iconColor: "#ffac6cc2"
-    });
-
-  }
+  ngOnInit(): void { }
 
   signUpForm: FormGroup = new FormGroup(
     {
@@ -96,7 +78,8 @@ export class SignUpComponent implements OnInit {
             confirmButtonText: "Ok",
             confirmButtonAriaLabel: "Ok",
             cancelButtonText: "Cancel",
-            cancelButtonAriaLabel: "Cancel"
+            cancelButtonAriaLabel: "Cancel",
+            iconColor: "#ffac6cc2"
           });
           this.redirectToLogin()
         },
@@ -122,10 +105,11 @@ export class SignUpComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: false,
       focusConfirm: false,
-      confirmButtonText: "Close",
-      confirmButtonAriaLabel: "Close",
+      confirmButtonText: "Ok",
+      confirmButtonAriaLabel: "Ok",
       cancelButtonText: "Cancel",
-      cancelButtonAriaLabel: "Cancel"
+      cancelButtonAriaLabel: "Cancel",
+      iconColor: "#ffac6cc2"
     });
   }
 
