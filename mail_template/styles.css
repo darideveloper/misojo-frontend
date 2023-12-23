@@ -45,20 +45,25 @@ p, button{
 }
 
 button{
-  width: 250px;
-  height: 40px;
-  margin-top: 20px;
-  border: none;
+  width: 200px;
+  max-width: 85%;
+  margin-top: 30px;
   border-radius: 7px;
   font-family: 'Noto Sans', sans-serif;
   background-color: #ffac6c;
-  transition: all 0.5s ease-out;
+  transition: all 0.35s ease-out;
+  font-size: 1.25rem;
+  color: white;
+  padding: 5px 0;
+  cursor: pointer;
+  border: 3px solid #ffac6c;
+  font-weight: bold;
 }
 
 button:hover{
-  cursor: pointer;
-  transition: all 0.5s ease-out;
-  transform: scaleX(1.05)
+  background-color: #fffbf5;
+  color: #ffac6c;
+  transform: scale(1.05);
 }
 
 button:active{
