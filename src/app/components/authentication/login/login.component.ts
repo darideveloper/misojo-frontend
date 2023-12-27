@@ -35,6 +35,32 @@ export class LoginComponent implements OnInit {
 
     this.submitted = false;
 
+    this.misojoApi.login(this.loginForm.value)
+      .pipe(finalize(() => {
+        //this.spinnerService.hide()
+      }))
+      .subscribe(
+        () => {
+          Swal.fire({
+            title: "Great",
+            icon: "success",
+            text: "Succesful login",
+            color: "#020202",
+            background: "#fffbf5",
+            confirmButtonColor: "#ffac6c",
+            showCloseButton: true,
+            showCancelButton: false,
+            focusConfirm: false,
+            confirmButtonText: "Ok",
+            confirmButtonAriaLabel: "Ok",
+            cancelButtonText: "Cancel",
+            cancelButtonAriaLabel: "Cancel",
+            iconColor: "#ffac6cc2"
+          });
+          this.redirectToLogin()
+        },
+        (errorDefinition:any) => this.handleError(errorDefinition)
+      );
   }
 
   redirectToLogin(){
