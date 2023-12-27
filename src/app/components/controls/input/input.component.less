@@ -10,11 +10,15 @@ input {
   box-sizing: border-box;
   transition-duration: @transition-duration;
 
+  &:focus{
+    outline: none;
+  }
+  
   &::placeholder{
     font-family: 'Noto Sans', sans-serif;
     color: @light-grey;
   }
-  
+
   &:focus{
     outline: none;
     border: 2px solid @custom-primary;

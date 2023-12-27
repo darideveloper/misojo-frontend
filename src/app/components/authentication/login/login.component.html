@@ -1,1 +1,58 @@
-<p>login works!</p>
+<div class="content">
+  <div class="left">
+    <img src="../../../../assets/Images/login-img.svg" alt="" data-aos="fade-down" data-aos-duration="1000">
+  </div>
+  <div class="right">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
+      <h1 data-aos="fade-down" data-aos-duration="800" data-aos-delay="800">Login</h1>
+
+      <div class="inputs" data-aos="fade-down" data-aos-duration="800" data-aos-delay="1200">
+        <app-label
+          text="Email"
+        >
+        </app-label>
+        <app-input
+          name="email"
+          placeholder="name@email.com"
+          tabindex="3"
+          type="email"
+          formControlName="email"
+          [control]="loginForm.controls['email']"
+          [submitted]="submitted"
+          [error]="this.loginForm.get('email')!.hasError('required') || this.loginForm.get('email')!.hasError('email')"
+        >
+        </app-input>
+        <p *ngIf="this.loginForm.get('email')!.hasError('required') && submitted" class="error-field">Required</p>
+        <p *ngIf="this.loginForm.get('email')!.hasError('email') && submitted" class="error-field">Invalid Format</p>
+        <app-label
+          text="Password"
+        >
+        </app-label>
+        <app-input
+          name="password"
+          placeholder="**********"
+          tabindex="4"
+          type="password"
+          formControlName="password"
+          [control]="loginForm.controls['password']"
+          [submitted]="submitted"
+          [error]="this.loginForm.get('password')!.hasError('required')"
+        >
+        </app-input>
+        <p *ngIf="this.loginForm.get('password')!.hasError('required') && submitted" class="error-field">Required</p>
+      </div>
+
+      <div class="centered" data-aos="fade-down" data-aos-duration="800" data-aos-delay="1600">
+        <div class="row">
+          <div class="button-comtainer">
+            <app-button
+              text="Sign Up"
+              tapIndex="6"
+            >
+            </app-button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

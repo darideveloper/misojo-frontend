@@ -21,6 +21,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input("class") className = '';
   @Input() placeholder = '';
   @Input() name = '';
+  @Input() tapIndex = '';
   @Input() control: any;
   @Input() submitted: boolean = false;
   @Input() error: boolean = false;
